@@ -1,8 +1,8 @@
 package main
 
-import "testing"
-
-
+import (
+	"testing"
+)
 func TestSearch( t *testing.T) {
 
 	var testArr = []int{-2, 3, 4, 5, 6, 7, 100} //array to test from
@@ -17,14 +17,14 @@ func TestSearch( t *testing.T) {
 		t.Errorf("ERROR: should be %v, but got %v", index, properResult)
 		t.Fail()
 	} else {
-		t.Logf("Success! expected %v and got %v", index, properResult)
+		t.Logf("PASS | expected %v and got %v", index, properResult)
 	}
 	//test for number not found
 	if improperResult != -1 {
 		t.Errorf("ERROR: should return -1 but got %v", improperResult)
 		t.Fail()
 	} else {
-		t.Logf("Success! Number not found in array, function returned -1")
+		t.Logf("PASS | Number not found in array, function returned -1")
 	}
 
 }

@@ -1,9 +1,23 @@
 package main
 
-func Search(nums []int, target int) int {
-    left :=0 //smallest index target could be
+import (
+    "fmt"
+    "os"
+)
+
+func Search(nums []int, target int) (int) {
+    
+    left := 0 //smallest index target could be
     right := len(nums)-1 //largest index target could be
 
+    if fmt.Sprintf("%T", nums)!= "[]int" {
+        fmt.Println(fmt.Errorf("ERROR: non-integer arrays not allowed").Error())
+        os.Exit(1)
+    }
+    if fmt.Sprintf("%T", target)!= "int" {
+        fmt.Println(fmt.Errorf("ERROR: non-integer targets are not allowed").Error())
+        os.Exit(2)
+    }
     for left+1<right {
         mid := left+(right-left)/2 //find middle of possible range
         if nums[mid] == target { //if middle of list is target, return mid
