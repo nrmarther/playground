@@ -2,6 +2,7 @@ package main
 
 import (
     "fmt"
+    "sort"
     "os"
 )
 
@@ -9,6 +10,8 @@ func Search(nums []int, target int) (int) {
     
     left := 0 //smallest index target could be
     right := len(nums)-1 //largest index target could be
+
+    sort.Ints(nums[:]) //sort the the integer array
 
     if fmt.Sprintf("%T", nums)!= "[]int" {
         fmt.Println(fmt.Errorf("ERROR: non-integer arrays not allowed").Error())
