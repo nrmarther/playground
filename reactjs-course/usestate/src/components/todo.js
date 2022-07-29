@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import Input from "./input";
+import { userDetail } from "./userdetail"
 
 const Todo = () => {
     const [name, setName] = useState();
     const [city, setCity] = useState();
+    console.log('userDetail', userDetail)
     return (
         <>
             <Input 
@@ -29,8 +31,16 @@ const Todo = () => {
             :
             'No city found'
             }
-            <br/>
-
+            <br/><br />
+            {userDetail.map((user) => (
+                <div className="row">
+                    <div className="col-4">{user.name}</div>
+                    <div className="col-4">{user.salary}</div>
+                    <div className="col-4">{user.job}</div>
+                    <br />
+                </div>
+            ))}
+            
 
         </>
     );
